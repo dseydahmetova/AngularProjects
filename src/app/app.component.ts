@@ -1,25 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
+import { HeaderComponent } from "./layout/header/header.component";
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit, OnDestroy{
-  intervalSub;
-
-  title = 'my-first-angular-app';
-  ngOnInit(): void {
-    this.intervalSub = setInterval(() => {
-      console.log('Hello From onInit')
-    }, 1000);
-  }
-  ngOnDestroy(): void {
-    if(this.intervalSub)
-      clearInterval(this. intervalSub);
-  }
+export class AppComponent {
+  title = 'tutorial'
 }

@@ -19,21 +19,21 @@ export interface Options {
 
 export interface Products {
     items: Product[];
-    total:number;
-    page:number;
+    total: number;
+    page: number;
     perpage: number;
-    totalPages:number;
+    totalPages: number;
 }
 
 export interface Product {
     price: string;
-    name:string;
+    name: string;
     image: string;
     rating: number;
 }
 
 export interface PaginationParams {
-    [key: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;
+    [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;
     page: number;
     perPage: number;
 }
