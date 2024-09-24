@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import { Product } from '../../../types';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { ToastModule } from 'primeng/toast';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
 
 @Component({
@@ -37,7 +37,8 @@ confirmDelete(){
     accept:() => {
       this.deleteProduct();
       },
-    )};
+    })
+  };
 
   deleteProduct(){
     this.delete.emit(this.product);

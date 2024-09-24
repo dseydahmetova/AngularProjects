@@ -72,7 +72,7 @@ export class EditPopupComponent {
     //   price: price || '',
     //   rating: rating || 0,
     // });
-
+    this.confirm.emit(this.product);
     this.display = false;
     this.displayChange.emit(this.display);
   }
