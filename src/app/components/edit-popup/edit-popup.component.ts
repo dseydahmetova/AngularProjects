@@ -30,9 +30,8 @@ export class EditPopupComponent {
   // constructor(private formBuilder: FormBuilder) {}
 
   @Input() display: boolean = false;
-  @Output() displayChange = new EventEmitter<boolean>();
-
   @Input() header!: string;
+  @Output() displayChange = new EventEmitter<boolean>();
 
   @Input() product: Product = {
     name: '',
