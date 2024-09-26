@@ -6,11 +6,14 @@ import { ButtonModule } from 'primeng/button';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
+import { PricePipe} from '../../pipes/price.pipe';
+import { TruncateNamePipe} from '../../pipes/truncate-name.pipe';
+
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RatingModule, FormsModule, ButtonModule, ConfirmPopupModule, ToastModule],
+  imports: [RatingModule, FormsModule, ButtonModule, ConfirmPopupModule, ToastModule, PricePipe, TruncateNamePipe],
   providers: [ConfirmationService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
@@ -21,6 +24,8 @@ export class ProductComponent {
   @Input() product!: Product;
   @Output() edit: EventEmitter<Product> = new EventEmitter<Product>();
   @Output() delete: EventEmitter<Product> = new EventEmitter<Product>();
+
+
 
   toggleDeletePopup() {
     throw new Error('Method not implemented.');
@@ -37,8 +42,8 @@ confirmDelete(){
     accept:() => {
       this.deleteProduct();
       },
-    })
-  };
+    });
+  }
 
   deleteProduct(){
     this.delete.emit(this.product);
